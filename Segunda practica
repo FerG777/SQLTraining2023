@@ -1,0 +1,45 @@
+La base de datos AdventureWorks es un excelente recurso para practicar SQL. Aquí tienes un desafío simple adecuado para principiantes:
+
+Desafío:
+En la base de datos AdventureWorks2019, existe una tabla llamada Person.Person que contiene información sobre personas. Tu desafío es realizar las siguientes tareas:
+
+1. Seleccionar Datos Básicos: Escribe una consulta para seleccionar los nombres y apellidos de todas las personas en la tabla Person.Person. 
+   Deberás usar las columnas FirstName y LastName.
+
+2. Contar Registros: Modifica la consulta anterior para que, en lugar de mostrar los nombres, cuente el número total de personas en la tabla.
+
+3. Filtrar Resultados: Escribe una consulta que seleccione los nombres y apellidos de todas las personas cuyo apellido comience con la letra 'L'.
+
+Estos ejercicios te ayudarán a familiarizarte con las operaciones básicas de selección, conteo y filtrado en SQL. ¡Buena suerte y diviértete practicando!
+
+-----------------------------------------------------------
+Paso 2: Contar Registros
+
+Para contar el número total de personas en la tabla Person.Person, utilizarás la función COUNT(). E
+sta función cuenta el número de filas que cumplen una determinada condición. 
+En este caso, quieres contar todas las filas, por lo que puedes usar COUNT(*), que cuenta todas las filas de la tabla. La consulta SQL sería así:
+
+|----------------------------------|
+| SELECT COUNT(*) AS TotalPersonas |
+| FROM Person.Person;              |   
+|----------------------------------|
+Esta consulta devuelve el número total de registros en la tabla Person.Person.
+
+--------------------------------
+Paso 3: Filtrar Resultados
+
+Para filtrar los resultados y seleccionar solo aquellos cuyo apellido comience con la letra 'L', 
+utilizarás la cláusula WHERE junto con la función LIKE. La consulta SQL sería:
+
+|-----------------------------|
+| SELECT FirstName, LastName  |
+| FROM Person.Person          | 
+| WHERE LastName LIKE 'L%';   | 
+| ----------------------------|
+
+En esta consulta, LIKE 'L%' se utiliza para filtrar los apellidos. 
+El carácter % es un comodín que representa cualquier secuencia de caracteres. 
+Por lo tanto, 'L%' seleccionará cualquier apellido que comience con 'L'.
+
+Estas consultas te permitirán practicar operaciones básicas en SQL, como contar registros y filtrar resultados. 
+Recuerda ejecutar estas consultas en tu sistema de gestión de base de datos SQL Server para ver los resultados. ¡Buena práctica!
