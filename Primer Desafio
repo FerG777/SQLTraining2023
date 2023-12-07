@@ -1,0 +1,59 @@
+Desafío:
+Supongamos que tienes una tabla llamada Ventas con las siguientes columnas:
+
+- 'ID' (un identificador único para cada venta)
+- 'Producto' (el nombre del producto vendido)
+- 'Cantidad' (la cantidad de productos vendidos en esa transacción)
+- 'Fecha' (la fecha en que se realizó la venta, en formato YYYY-MM-DD)
+
+Tu desafío es escribir una consulta SQL que realice las siguientes tareas:
+
+1. Seleccionar todos los registros donde se vendieron más de 5 unidades de un producto.
+2. Agrupar esos registros por el nombre del producto.
+3. Calcular la cantidad total vendida de cada producto.
+4. Ordenar el resultado por la cantidad total vendida de cada producto en orden descendente.
+
+Escribe la consulta SQL que cumpla con estos requisitos.
+
+= SOLUCION = 
+
+SELECT Producto, SUM(Cantidad) AS TotalVendido
+FROM Ventas
+WHERE Cantidad > 5
+GROUP BY Producto
+ORDER BY TotalVendido DESC;
+
+Ahora, te mostraré un ejemplo de cómo se verían los resultados. Supongamos que tenemos los siguientes datos en la tabla Ventas:
+
+|------------------------------------------|
+| ID  | Producto	| Cantidad	|   Fecha    |
+|-----|-----------|-----------|------------|
+|  1	| Manzanas	|   10      | 2023-01-01 |
+|-----|-----------|-----------|------------|
+|  2	| Peras	    |    6	    | 2023-01-02 |
+|-----|-----------|-----------|------------|
+|  3	| Naranjas	|    4	    | 2023-01-03 |
+|-----|-----------|-----------|------------|
+|  4	| Manzanas	|    7      | 2023-01-04 |
+|-----|-----------|-----------|------------|
+|  5	| Peras	    |    8      | 2023-01-05 |
+|-----|-----------|-----------|------------|
+|  6	| Naranjas	|    9	    | 2023-01-06 |
+|-----|-----------|-----------|------------|
+|  7	| Manzanas	|    5	    | 2023-01-07 |
+|------------------------------------------|
+
+Con estos datos, el resultado de la consulta sería:
+
+|-------------------------|
+| Producto | TotalVendido |
+|----------|--------------|
+| Manzanas |     17       |    
+|----------|--------------|
+| Peras	   |     14       |
+|----------|--------------|
+| Naranjas |     9        |  
+|-------------------------|
+
+Este resultado muestra los totales de las ventas de productos donde se vendieron más de 5 unidades, 
+agrupados por producto y ordenados por el total vendido en orden descendente.
