@@ -1,0 +1,67 @@
+Desafío de SQL basado en la base de datos AdventureWorks2019, ideal para practicar tus habilidades:
+
+Desafío:
+
+En AdventureWorks2019, hay una tabla llamada Sales.SalesOrderDetail que registra detalles sobre pedidos de ventas. 
+Tu desafío es realizar las siguientes tareas utilizando esta tabla:
+
+1. Seleccionar Datos Específicos: Escribe una consulta para seleccionar el SalesOrderID, 
+   ProductID y OrderQty (cantidad del pedido) para todos los registros donde la cantidad del pedido (OrderQty) sea mayor a 10.
+
+2. Calcular el Total de Ventas por Producto: Modifica la consulta anterior para que, en lugar de mostrar los detalles individuales, 
+   agrupe los resultados por ProductID y sume la OrderQty para cada producto. Esto te dará el total de unidades vendidas de cada producto donde las ventas individuales fueron mayores a 10 unidades.
+
+3. Filtrar y Ordenar Resultados: Finalmente, filtra para mostrar solo aquellos productos cuyo total de unidades vendidas sea mayor a 50 
+   y ordena los resultados por el total de unidades vendidas en orden descendente.
+
+Este desafío te ayudará a practicar selecciones condicionales, funciones de agregación, agrupamiento, filtrado y ordenamiento en SQL. ¡Buena suerte con tu práctica!
+
+------------------------------------------------------------------------------------------------------------------------
+
+Aquí tienes ejemplos de cómo escribir las consultas SQL para cada paso del desafío utilizando la tabla Sales.SalesOrderDetail de la base de datos AdventureWorks2019:
+
+- Paso 1: Seleccionar Datos Específicos
+Para seleccionar el SalesOrderID, ProductID y OrderQty donde OrderQty es mayor a 10:
+
+|------------------------------------------|
+| SELECT SalesOrderID, ProductID, OrderQty |
+| FROM Sales.SalesOrderDetail              |
+| WHERE OrderQty > 10;                     |
+|------------------------------------------|
+
+Esta consulta selecciona las columnas especificadas de todos los registros donde la cantidad del pedido es mayor a 10.
+
+- Paso 2: Calcular el Total de Ventas por Producto
+Para agrupar los resultados por ProductID y sumar la OrderQty:
+
+|--------------------------------------------------------------|
+| SELECT ProductID, SUM(OrderQty) AS TotalUnidadesVendidas     |
+| FROM Sales.SalesOrderDetail                                  |   
+| WHERE OrderQty > 10                                          |
+| GROUP BY ProductID;                                          |
+|--------------------------------------------------------------|
+Esta consulta muestra el total de unidades vendidas por cada producto, solo para aquellos pedidos donde se vendieron más de 10 unidades de un producto.
+
+- Paso 3: Filtrar y Ordenar Resultados
+Para filtrar y mostrar productos cuyo total de unidades vendidas sea mayor a 50, y ordenar los resultados:
+
+|------------------------------------------------------------|
+| SELECT ProductID, SUM(OrderQty) AS TotalUnidadesVendidas   |
+| FROM Sales.SalesOrderDetail                                |
+| WHERE OrderQty > 10                                        |
+| GROUP BY ProductID                                         |
+| HAVING SUM(OrderQty) > 50                                  |     
+| ORDER BY TotalUnidadesVendidas DESC;                       |
+|------------------------------------------------------------|
+
+En esta consulta, HAVING SUM(OrderQty) > 50 se usa para filtrar los grupos resultantes del GROUP BY, 
+mostrando solo aquellos productos cuyo total de unidades vendidas es mayor a 50. ORDER BY TotalUnidadesVendidas 
+DESC ordena los resultados en orden descendente por el total de unidades vendidas.
+
+Estas consultas cubren las operaciones básicas de selección, agrupación, sumarización, filtrado y ordenación en SQL
+y te ayudarán a practicar con datos reales de AdventureWorks2019. ¡Inténtalas y ve los resultados que obtienes!
+
+
+
+
+
