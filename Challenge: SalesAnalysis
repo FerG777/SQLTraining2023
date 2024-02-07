@@ -1,0 +1,58 @@
+Imagine you have a table called Sales with the following columns:
+
+'ID' (a unique identifier for each sale)
+'Product' (the name of the product sold)
+'Quantity' (the quantity of products sold in that transaction)
+'Date' (the date the sale was made, in YYYY-MM-DD format)
+Your challenge is to write a SQL query that accomplishes the following tasks:
+
+Select all records where more than 5 units of a product were sold.
+Group those records by the product name.
+Calculate the total quantity sold for each product.
+Sort the result by the total quantity sold of each product in descending order.
+Write the SQL query that meets these requirements.
+
+= SOLUTION =
+
+Copy code
+|--------------------------------------------|
+| SELECT Product, SUM(Quantity) AS TotalSold |
+| FROM Sales                                 |
+| WHERE Quantity > 5                         |
+| GROUP BY Product                           |
+| ORDER BY TotalSold DESC;                   |
+|--------------------------------------------|
+Now, I'll provide an example of how the results would look. Let's assume we have the following data in the Sales table:
+
+
+|------------------------------------------|
+|  ID  |  Product  |  Quantity  |    Date   |
+|------|-----------|------------|-----------|
+|   1  |  Apples   |     10     | 2023-01-01|
+|------|-----------|------------|-----------|
+|   2  |  Pears    |     6      | 2023-01-02|
+|------|-----------|------------|-----------|
+|   3  |  Oranges  |     4      | 2023-01-03|
+|------|-----------|------------|-----------|
+|   4  |  Apples   |     7      | 2023-01-04|
+|------|-----------|------------|-----------|
+|   5  |  Pears    |     8      | 2023-01-05|
+|------|-----------|------------|-----------|
+|   6  |  Oranges  |     9      | 2023-01-06|
+|------|-----------|------------|-----------|
+|   7  |  Apples   |     5      | 2023-01-07|
+|------------------------------------------|
+
+With this data, the result of the query would be:
+
+
+|-------------------------|
+| Product  | TotalSold     |
+|----------|--------------|
+| Apples   |     17        |    
+|----------|--------------|
+| Pears    |     14        |
+|----------|--------------|
+| Oranges  |     9         |  
+|-------------------------|
+This result shows the totals of product sales where more than 5 units were sold, grouped by product and sorted by the total sold in descending order.
