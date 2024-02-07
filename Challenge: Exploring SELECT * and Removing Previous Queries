@@ -1,0 +1,35 @@
+In this challenge, we'll explore the usage of SELECT * in SQL and practice removing previous queries in SQL Server Management Studio.
+
+Step 1: Remove the Previous Query
+
+- Open the query editor window where you previously wrote your query.
+- Select all the content of the query and delete it entirely.
+- Make sure the query editor window is empty after removing the previous query.
+
+Step 2: Explore the Usage of SELECT *
+
+In SQL, SELECT * is used to select all columns from a table in a query. It's a quick way to retrieve all data from the table without explicitly listing each column.
+
+For example, if we have a table named Employees with columns like Name, LastName, Age, Salary, etc., by writing SELECT * FROM Employees, the database will return all data from all columns of the Employees table.
+
+Step 3: Write a New Query
+Write a new query that utilizes SELECT * to select all data from the Employees table in the AdventureWorks 2022 database.
+
+
+= Copy code (example) =
+-- Step 3: Write a New Query
+-- Select all data from the Employees table using SELECT *
+|-------------------------------|
+| SELECT *                      |  
+| FROM HumanResources.Employee; |
+|-------------------------------|
+
+Step 4: Execute and Verify the New Query
+Once you've written the new query, execute it and verify the results to ensure you're getting all the data from the Employees table.
+
+Step 5: Reflect on the Efficiency of SELECT *
+While SELECT * is convenient, it can sometimes be less efficient than enumerating only the specific columns you need. This is because selecting all columns may return more data than necessary, which can impact query performance, especially on tables with many columns or sensitive data that isn't needed at that time.
+
+Step 6: Remove the New Query
+After completing the challenge, remove the new query written in Step 3 to keep the workspace clean.
+
