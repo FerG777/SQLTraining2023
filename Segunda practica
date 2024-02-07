@@ -1,45 +1,39 @@
-La base de datos AdventureWorks es un excelente recurso para practicar SQL. Aquí tienes un desafío simple adecuado para principiantes:
+In the AdventureWorks2019 database, there exists a table called Person.Person that contains information about people. Your challenge is to perform the following tasks:
 
-Desafío:
-En la base de datos AdventureWorks2019, existe una tabla llamada Person.Person que contiene información sobre personas. Tu desafío es realizar las siguientes tareas:
+Step 1: Select Basic Data
+Write a query to select the first names and last names of all people in the Person.Person table. You should use the FirstName and LastName columns.
 
-1. Seleccionar Datos Básicos: Escribe una consulta para seleccionar los nombres y apellidos de todas las personas en la tabla Person.Person. 
-   Deberás usar las columnas FirstName y LastName.
+Step 2: Count Records
+Modify the previous query to instead of displaying names, count the total number of people in the table.
 
-2. Contar Registros: Modifica la consulta anterior para que, en lugar de mostrar los nombres, cuente el número total de personas en la tabla.
+Step 3: Filter Results
+Write a query that selects the first names and last names of all people whose last name starts with the letter 'L'.
 
-3. Filtrar Resultados: Escribe una consulta que seleccione los nombres y apellidos de todas las personas cuyo apellido comience con la letra 'L'.
+These exercises will help you become familiar with basic SQL operations such as selection, counting, and filtering. Good luck and have fun practicing!
 
-Estos ejercicios te ayudarán a familiarizarte con las operaciones básicas de selección, conteo y filtrado en SQL. ¡Buena suerte y diviértete practicando!
+= Solutions =
 
------------------------------------------------------------
-Paso 2: Contar Registros
+Step 1: Select Basic Data
 
-Para contar el número total de personas en la tabla Person.Person, utilizarás la función COUNT(). E
-sta función cuenta el número de filas que cumplen una determinada condición. 
-En este caso, quieres contar todas las filas, por lo que puedes usar COUNT(*), que cuenta todas las filas de la tabla. La consulta SQL sería así:
-
-|----------------------------------|
-| SELECT COUNT(*) AS TotalPersonas |
-| FROM Person.Person;              |   
-|----------------------------------|
-Esta consulta devuelve el número total de registros en la tabla Person.Person.
-
---------------------------------
-Paso 3: Filtrar Resultados
-
-Para filtrar los resultados y seleccionar solo aquellos cuyo apellido comience con la letra 'L', 
-utilizarás la cláusula WHERE junto con la función LIKE. La consulta SQL sería:
-
+= Copy code =
 |-----------------------------|
 | SELECT FirstName, LastName  |
-| FROM Person.Person          | 
-| WHERE LastName LIKE 'L%';   | 
-| ----------------------------|
+| FROM Person.Person;         |
+|-----------------------------|
 
-En esta consulta, LIKE 'L%' se utiliza para filtrar los apellidos. 
-El carácter % es un comodín que representa cualquier secuencia de caracteres. 
-Por lo tanto, 'L%' seleccionará cualquier apellido que comience con 'L'.
+Step 2: Count Records
 
-Estas consultas te permitirán practicar operaciones básicas en SQL, como contar registros y filtrar resultados. 
-Recuerda ejecutar estas consultas en tu sistema de gestión de base de datos SQL Server para ver los resultados. ¡Buena práctica!
+= Copy code =
+SELECT COUNT(*) AS TotalPeople
+FROM Person.Person;
+
+
+Step 3: Filter Results
+
+= Copy code =
+SELECT FirstName, LastName
+FROM Person.Person
+WHERE LastName LIKE 'L%';
+
+These queries will allow you to practice basic SQL operations such as counting records and filtering results. 
+Remember to execute these queries in your SQL Server management system to see the results. Happy practicing!
