@@ -1,0 +1,23 @@
+This exercise is carried out on the website https://www.sql-practice.com/, which offers practical SQL exercises ranging from basic to difficult levels. In this challenge, you can see the problem statement displayed in the box on the right-hand side. According to the challenge presented, we follow these steps to arrive at the solution:
+
+Read the Challenge: The challenge is to "Show first name, last name, and gender of patients whose gender is 'M'". This requires us to display the first name, last name, and gender of patients whose gender is male ('M').
+
+Identify the Relevant Columns: Based on the question, we need to select the columns first_name, last_name, and gender from the table that contains patient data.
+
+Use the SELECT Command: To select the aforementioned columns from the data table, we use the SELECT command followed by the column names.
+
+Specify the Data Table: We indicate the table from which the data will be extracted with FROM patients, as the data we require is in the patients table.
+
+Apply a Filter with WHERE: To ensure that only male patients are included in the results, we add the condition WHERE gender = 'M'.
+
+Therefore, the complete SQL query that solves this challenge is:
+
+sql
+Copy code
+SELECT first_name, last_name, gender FROM patients WHERE gender = 'M';
+When we run this query on the website https://www.sql-practice.com/, the system will search the patients table and return a list of all patients who are male, along with their first and last names. This exercise is a great example of how SQL queries can be used to filter and retrieve specific data from a database based on certain criteria.
+
+
+
+
+
