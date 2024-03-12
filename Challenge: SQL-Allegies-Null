@@ -1,0 +1,28 @@
+This exercise is carried out on the website https://www.sql-practice.com/, which offers practical SQL exercises ranging from basic to difficult levels. 
+In this challenge, you can see the problem statement displayed in the box on the right-hand side. 
+According to the challenge presented, we follow these steps to arrive at the solution:
+
+Read the Challenge: "Show first name and last name of patients who does not have allergies. (null)".
+
+Solution:
+
+-- Selecting the first name and last name columns
+
+SELECT
+  first_name,
+  last_name
+
+-- From the patients table
+FROM patients
+
+-- Filtering for patients with no allergies
+WHERE allergies IS NULL;
+
+These comments provide clarity on what each part of the query does:
+
+* SELECT: Indicates that we're selecting specific columns from the table.
+* first_name, last_name: Specifies the columns we're selecting.
+* FROM: Indicates the table from which we're selecting data.
+* patients: Specifies the table from which data is being selected.
+* WHERE: Specifies a condition for filtering rows.
+* allergies IS NULL: Specifies that we're filtering for rows where the allergies column is null, meaning the patient has no allergies.
