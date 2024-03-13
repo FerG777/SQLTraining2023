@@ -1,0 +1,24 @@
+-- Select the columns you want to display in the result set.
+SELECT 
+    SP.BusinessEntityID,  -- The salesperson's ID from the SalesPerson table.
+    P.FirstName + ' ' + COALESCE(P.MiddleName + ' ', '') + P.LastName AS FullName,  -- The full name of the salesperson.
+    SUM(SOH.TotalDue) AS TotalSales  -- The sum of all sales amounts associated with each salesperson.
+
+-- Specify the tables from where to retrieve the data.
+FROM Sales.SalesPerson AS SP  -- Main salesperson table with an alias 'SP'.
+
+-- Join records from different tables based on matching conditions.
+JOIN Sales.SalesOrderHeader AS SOH ON SP.BusinessEntityID = SOH.SalesPersonID  -- Joins sales orders with salespersons.
+JOIN Person.Person AS P ON SP.BusinessEntityID = P.BusinessEntityID  -- Joins personal information with salespersons.
+
+-- Filter results to include only those from a specific year.
+WHERE YEAR(SOH.OrderDate) = 2014  -- Selects only sales from the year 2014.
+
+-- Group the results by salesperson to enable sales sums calculation.
+GROUP BY SP.BusinessEntityID, P.FirstName, P.MiddleName, P.LastName  -- Necessary for SUM() in the SELECT.
+
+-- Filter the resulting groups by a total sales amount.
+HAVING SUM(SOH.TotalDue) > 100000  -- Shows only those salespersons whose total sales are greater than $100,000.
+
+-- Order the results by the total sales amount in descending order.
+ORDER BY TotalSales DESC;  -- The highest selling salespersons appear first.
