@@ -1,0 +1,12 @@
+This exercise is carried out on the website https://www.sql-practice.com/, which offers practical SQL exercises ranging from basic to difficult levels. 
+In this challenge, you can see the problem statement displayed in the box on the right-hand side. 
+According to the challenge presented, we follow these steps to arrive at the solution:
+
+Read the Challenge: "Show unique birth years from patients and order them by ascending.".
+
+Solution:
+-- Select unique birth years from the 'patients' table
+SELECT DISTINCT
+  YEAR(birth_date) AS BirthYear  -- Extracts the year from the 'birth_date' column and names it as 'BirthYear'
+FROM patients  -- Specifies the table from where the data is being extracted, in this case, 'patients'
+ORDER BY BirthYear;  -- Orders the results by 'BirthYear' in ascending order (this is by default)
