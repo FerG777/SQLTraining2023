@@ -1,3 +1,21 @@
+AdventureWorks 2022 SQL Challenge: Sales by Salesperson for a Specific Year
+
+Problem: In the AdventureWorks2022 database, we aim to analyze the sales performance of salespeople. Write an SQL query that calculates the total sales (in dollars) for each salesperson during the year 2014. The query should display the salesperson's ID (BusinessEntityID), the full name of the salesperson (you can combine FirstName, MiddleName, and LastName), and the total sales (TotalSales). Include only those salespeople whose total sales exceed $100,000 for the year.
+
+Suggested Tables and Schemas:
+
+Person.Person: Contains information about people, including salespeople.
+Sales.SalesOrderHeader: Contains the headers of sales orders, where each order is associated with a salesperson and has a total (TotalDue).
+Sales.SalesPerson: Links employees with their sales.
+Tips:
+
+You will use JOIN to combine data from Sales.SalesPerson with Person.Person to obtain the salespeople's names and from Sales.SalesOrderHeader to access the sales.
+To sum the total sales by salesperson, use the aggregation function SUM() on SalesOrderHeader.TotalDue.
+Filter the results to get sales for the year 2023 with the YEAR() function applied to SalesOrderHeader.OrderDate.
+Finally, use HAVING to include only those salespeople with total sales greater than $100,000.
+
+Solution:
+
 -- Select the columns you want to display in the result set.
 SELECT 
     SP.BusinessEntityID,  -- The salesperson's ID from the SalesPerson table.
